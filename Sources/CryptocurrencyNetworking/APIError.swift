@@ -33,7 +33,7 @@ public struct APIError: Error {
         }
     }
     
-    var humanReadableDescription: String {
+    public var humanReadableDescription: String {
         switch reason {
         case .connectionFailed:
             return "Looks like connection failed. Please try again later."

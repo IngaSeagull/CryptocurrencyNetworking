@@ -1,6 +1,6 @@
 import Foundation
 
-protocol APIClientProtocol {
+public protocol APIClientProtocol {
     func getUSDFromBitcoin() async -> Result<Double, APIError>
 }
 
@@ -15,7 +15,7 @@ public final class CryptoConverterAPIClient: APIClientProtocol {
         self.session = URLSession(configuration: configuration)
     }
     
-    func getUSDFromBitcoin() async -> Result<Double, APIError> {
+    public func getUSDFromBitcoin() async -> Result<Double, APIError> {
         do {
             return .success(try await getCryptocurrency(Cryptocurrency.btc.rawValue, from: Cryptocurrency.usd.rawValue).usd)
         } catch {

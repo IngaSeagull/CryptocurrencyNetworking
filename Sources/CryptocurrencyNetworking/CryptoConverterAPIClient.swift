@@ -4,14 +4,14 @@ protocol APIClientProtocol {
     func getUSDFromBitcoin() async -> Result<Double, APIError>
 }
 
-final class CryptoConverterAPIClient: APIClientProtocol {
+public final class CryptoConverterAPIClient: APIClientProtocol {
     private let session: URLSession
     
     private enum Constants {
         static let endpoint = "https://min-api.cryptocompare.com/data/price"
     }
     
-    init(configuration: URLSessionConfiguration = .default) {
+    public init(configuration: URLSessionConfiguration = .default) {
         self.session = URLSession(configuration: configuration)
     }
     
